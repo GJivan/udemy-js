@@ -1,1 +1,1 @@
-# JavScript Udemy Course Work
+# JavScript Assignment 2: Time to Practice: Functions
