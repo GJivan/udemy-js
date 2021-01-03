@@ -1,1 +1,1 @@
-# udemy-js-01-basics
+# JavScript Udemy Course Work
