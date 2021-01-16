@@ -7,39 +7,53 @@ function getUserNumberInput() {
 }
 
 //Generates and writes calculation log
-function createAndWriteLog(operator, resultBeforeCalc, CalcNumber) {
+function createAndWriteOutput(operator, resultBeforeCalc, CalcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${CalcNumber}`;
   outputResult(currentResult, calcDescription);
+}
+
+function writeToLog(operation, prevResult, operationNumber, newResult) {
+  const logEntry = {
+    operatrion: operation,
+    prevResult: prevResult,
+    number: operationNumber,
+    result: newResult,
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
 }
 
 function addCalc() {
   const enteredNumber = getUserNumberInput();
   const intialResult = currentResult;
+
   currentResult += enteredNumber;
-  createAndWriteLog('+', intialResult, enteredNumber);
-  logEntries.push(enteredNumber);
-  console.log(logEntries);
+  createAndWriteOutput('+', intialResult, enteredNumber);
+  writeToLog('ADD', intialResult, enteredNumber, currentResult);
 }
 
 function subtract() {
   const enteredNumber = getUserNumberInput();
   const intialResult = currentResult;
   currentResult -= enteredNumber;
-  createAndWriteLog('-', intialResult, enteredNumber);
+  createAndWriteOutput('-', intialResult, enteredNumber);
+  writeToLog('SUBTRACT', intialResult, enteredNumber, currentResult);
 }
 
 function multiply() {
   const enteredNumber = getUserNumberInput();
   const intialResult = currentResult;
   currentResult *= enteredNumber;
-  createAndWriteLog('*', intialResult, enteredNumber);
+  createAndWriteOutput('*', intialResult, enteredNumber);
+  writeToLog('MULTIPLY', intialResult, enteredNumber, currentResult);
 }
 
 function divide() {
   const enteredNumber = getUserNumberInput();
   const intialResult = currentResult;
   currentResult /= enteredNumber;
-  createAndWriteLog('/', intialResult, enteredNumber);
+  createAndWriteOutput('/', intialResult, enteredNumber);
+  writeToLog('DIVIDE', intialResult, enteredNumber, currentResult);
 }
 
 addBtn.addEventListener('click', addCalc);
