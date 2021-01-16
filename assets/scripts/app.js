@@ -8,7 +8,6 @@ function getUserNumberInput() {
 //Generates and writes calculation log
 function createAndWriteLog(operator, resultBeforeCalc, CalcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${CalcNumber}`;
-
   outputResult(currentResult, calcDescription);
 }
 
