@@ -5,6 +5,6 @@ addBtn.addEventListener('click', addCalc);
 
 
 function addCalc() {
-    currentResult = currentResult + userInput.value;
+    currentResult = currentResult + parseInt(userInput.value);
     outputResult(currentResult, '');
 }
