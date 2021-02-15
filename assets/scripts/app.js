@@ -23,7 +23,7 @@ function writeToLog(operation, prevResult, operationNumber, newResult) {
   console.log(logEntries);
 }
 
-function addCalc() {
+function add() {
   const enteredNumber = getUserNumberInput();
   const intialResult = currentResult;
 
@@ -56,7 +56,7 @@ function divide() {
   writeToLog('DIVIDE', intialResult, enteredNumber, currentResult);
 }
 
-addBtn.addEventListener('click', addCalc);
+addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click', subtract);
 multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
