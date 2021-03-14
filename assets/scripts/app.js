@@ -23,37 +23,43 @@ function writeToLog(operation, prevResult, operationNumber, newResult) {
   console.log(logEntries);
 }
 
-function add() {
+function calculateResult(calculationType) {
   const enteredNumber = getUserNumberInput();
   const intialResult = currentResult;
+ let mathOperator; 
+  if (calculationType === 'ADD') {
+    currentResult += enteredNumber;
+    mathOperator ='+';
+  } else if ( calculationType === 'SUBTRACT') {
+    currentResult -= enteredNumber;
+    mathOperator = '-';
+  }else if ( calculationType === 'MULTIPLY') {
+    currentResult *= enteredNumber;
+    mathOperator = '*';
+  }else if ( calculationType === 'DIVIDE') {
+    currentResult /= enteredNumber;
+    mathOperator = '/';
+  }
+  
 
-  currentResult += enteredNumber;
-  createAndWriteOutput('+', intialResult, enteredNumber);
-  writeToLog('ADD', intialResult, enteredNumber, currentResult);
+  createAndWriteOutput(mathOperator, intialResult, enteredNumber);
+  writeToLog(calculationType, intialResult, enteredNumber, currentResult);
+}
+
+function add() {
+  calculateResult('ADD');
 }
 
 function subtract() {
-  const enteredNumber = getUserNumberInput();
-  const intialResult = currentResult;
-  currentResult -= enteredNumber;
-  createAndWriteOutput('-', intialResult, enteredNumber);
-  writeToLog('SUBTRACT', intialResult, enteredNumber, currentResult);
+  calculateResult('SUBTRACT');
 }
 
 function multiply() {
-  const enteredNumber = getUserNumberInput();
-  const intialResult = currentResult;
-  currentResult *= enteredNumber;
-  createAndWriteOutput('*', intialResult, enteredNumber);
-  writeToLog('MULTIPLY', intialResult, enteredNumber, currentResult);
+  calculateResult('MULTIPLY');
 }
 
 function divide() {
-  const enteredNumber = getUserNumberInput();
-  const intialResult = currentResult;
-  currentResult /= enteredNumber;
-  createAndWriteOutput('/', intialResult, enteredNumber);
-  writeToLog('DIVIDE', intialResult, enteredNumber, currentResult);
+  calculateResult('DIVIDE');
 }
 
 addBtn.addEventListener('click', add);
